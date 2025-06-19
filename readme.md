@@ -54,7 +54,7 @@ npm install
 ```
 
 ### 3. Configurar variables de entorno
-Copia el archivo `.env.example` como `.env` y modifica según tu entorno:
+Crea y configura un archivo como `.env` y modifica según tu entorno:
 ```env
 DB_HOST=localhost
 DB_USER=root
@@ -64,7 +64,7 @@ PORT=3000
 ```
 
 ### 4. Crear la base de datos
-Ejecuta el contenido del archivo `schema.sql` en tu gestor MySQL favorito (phpMyAdmin, DBeaver, CLI, etc).
+Ejecuta el contenido del archivo `scripts.sql` que esta dentro de db, en tu gestor MySQL favorito (phpMyAdmin, DBeaver, CLI, etc).
 
 ---
 
