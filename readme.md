@@ -34,7 +34,8 @@ NULLCATIA/
     ├── /models
     ├── /routes
     ├── /middlewares
-    └── /views
+    ├── /views
+    └── /public
 ```
 
 ---
