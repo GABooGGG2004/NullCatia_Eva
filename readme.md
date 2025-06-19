@@ -23,15 +23,14 @@ NULLCATIA es una aplicación web desarrollada en Node.js + Express con EJS y MyS
 
 ```
 NULLCATIA/
-├── .env
 ├── package.json
 ├── README.md
-├── schema.sql
 └── /src
     ├── app.js
     ├── /config
     ├── /db
-    |   └── /controllers
+    |   ├── /controllers
+    |   └── scripts.sql
     ├── /models
     ├── /routes
     ├── /middlewares
@@ -44,7 +43,7 @@ NULLCATIA/
 
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/tuusuario/NULLCATIA.git
+git clone https://github.com/GABooGGG2004/NullCatia_Eva.git
 cd NULLCATIA
 ```
 
