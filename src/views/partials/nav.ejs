@@ -1,0 +1,53 @@
+<%- include('../partials/header') %>
+<nav class="nullcatia-nav">
+  <!-- Botón del menú móvil (siempre visible en móviles) -->
+  <label for="nullcatia-menu-toggle" class="nullcatia-menu-btn">
+    <i class="fas fa-bars"></i>
+  </label>
+  
+  <!-- Logo/Título centrado -->
+  <div class="nullcatia-nav-brand">
+    <a href="/" class="nullcatia-nav-title">
+      <i class="fas fa-paw"></i>
+      <span>NULLCATIA</span>
+      <i class="fas fa-paw"></i>
+    </a>
+  </div>
+  
+  <!-- Checkbox invisible para el menú hamburguesa -->
+  <input type="checkbox" id="nullcatia-menu-toggle" class="nullcatia-menu-checkbox">
+  
+  <!-- Menú principal -->
+  <ul class="nullcatia-nav-list">
+    <li class="nullcatia-nav-item">
+      <a href="/" class="nullcatia-nav-link">
+        <i class="fas fa-home"></i>
+        <span>Inicio</span>
+      </a>
+    </li>
+    <li class="nullcatia-nav-item">
+      <a href="/gatitos" class="nullcatia-nav-link">
+        <i class="fas fa-cat"></i>
+        <span>Gatitos</span>
+      </a>
+    </li>
+    <li class="nullcatia-nav-item">
+      <a href="/clanes" class="nullcatia-nav-link">
+        <i class="fas fa-users"></i>
+        <span>Clanes</span>
+      </a>
+    </li>
+    <li class="nullcatia-nav-item">
+      <a href="/scrolls" class="nullcatia-nav-link">
+        <i class="fas fa-scroll"></i>
+        <span>Pergaminos</span>
+      </a>
+    </li>
+    <li class="nullcatia-nav-item">
+      <a href="/territorios" class="nullcatia-nav-link">
+        <i class="fas fa-map-marked-alt"></i>
+        <span>Territorios</span>
+      </a>
+    </li>
+  </ul>
+</nav>

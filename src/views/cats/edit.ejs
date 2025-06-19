@@ -1,0 +1,48 @@
+<%- include('../partials/header')%>
+<%- include('../partials/nav')%>
+
+<div class="cats-kingdom-edit-container">
+  <div class="cats-kingdom-edit-card">
+    <div class="cats-kingdom-edit-header">
+      <h1 class="cats-kingdom-edit-title">✏️ Editar Noble Gatito</h1>
+      <p class="cats-kingdom-edit-subtitle">Actualiza los datos de <%= cat.name %></p>
+    </div>
+    
+    <form class="cats-kingdom-edit-form" action="/gatitos/<%= cat.id %>?_method=PUT" method="POST">
+      <div class="cats-kingdom-form-group">
+        <label for="name" class="cats-kingdom-form-label">Nombre Real</label>
+        <input type="text" name="name" id="name" class="cats-kingdom-form-input" value="<%= cat.name %>" required placeholder="Nombre del gatito">
+        <span class="cats-kingdom-form-icon"><i class="fas fa-crown"></i></span>
+      </div>
+
+      <div class="cats-kingdom-form-group">
+        <label for="age" class="cats-kingdom-form-label">Edad del Reino</label>
+        <input type="number" name="age" id="age" class="cats-kingdom-form-input" value="<%= cat.age %>" required placeholder="Edad en años" min="0" max="30">
+        <span class="cats-kingdom-form-icon"><i class="fas fa-hourglass-half"></i></span>
+      </div>
+
+      <div class="cats-kingdom-form-group">
+        <label for="clan_id" class="cats-kingdom-form-label">Alianza de Clan</label>
+        <div class="cats-kingdom-select-wrapper">
+          <select name="clan_id" id="clan_id" class="cats-kingdom-form-select" required>
+            <% clans.forEach(clan => { %>
+              <option value="<%= clan.id %>" <%= cat.clan_id === clan.id ? 'selected' : '' %>><%= clan.name %></option>
+            <% }) %>
+          </select>
+          <span class="cats-kingdom-select-arrow"><i class="fas fa-chevron-down"></i></span>
+        </div>
+      </div>
+
+      <div class="cats-kingdom-form-actions">
+        <button type="submit" class="cats-kingdom-btn cats-kingdom-btn-update">
+          <i class="fas fa-sync-alt"></i> Actualizar Registro Real
+        </button>
+        <a href="/gatitos" class="cats-kingdom-btn cats-kingdom-btn-cancel">
+          <i class="fas fa-times"></i> Cancelar
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/footer')%>

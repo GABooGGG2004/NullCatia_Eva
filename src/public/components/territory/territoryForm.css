@@ -1,0 +1,171 @@
+/* Estructura principal */
+.territory-form-wrapper {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.territory-form-panel {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  border: 1px solid #e0e5ff;
+}
+
+/* Encabezado */
+.territory-form-heading {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f0f5ff;
+}
+
+.territory-form-main-title {
+  color: #3a5683;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.territory-form-main-title i {
+  margin-right: 10px;
+  color: #5d7cb3;
+}
+
+.territory-form-description {
+  color: #5d7cb3;
+  font-size: 1rem;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+/* Campos del formulario */
+.territory-field-group {
+  margin-bottom: 1.8rem;
+}
+
+.territory-field-label {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: #3a5683;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.territory-field-label i {
+  margin-right: 8px;
+  color: #5d7cb3;
+}
+
+.territory-text-input {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border: 2px solid #e0e5ff;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #f9faff;
+}
+
+.territory-text-input:focus {
+  border-color: #5d7cb3;
+  box-shadow: 0 0 0 3px rgba(93, 124, 179, 0.2);
+  outline: none;
+  background-color: white;
+}
+
+/* Mensajes de error */
+.alert-message {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alert-message.error {
+  background-color: #fdecea;
+  color: #d32f2f;
+  border-left: 4px solid #d32f2f;
+}
+
+.error-text {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.input-error {
+  border-color: #d32f2f !important;
+  background-color: #fff5f5 !important;
+}
+
+/* Botones */
+.territory-form-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.territory-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: none;
+}
+
+.territory-save-btn {
+  background: linear-gradient(135deg, #5d7cb3 0%, #3a5683 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(93, 124, 179, 0.3);
+}
+
+.territory-save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(93, 124, 179, 0.4);
+}
+
+.territory-cancel-btn {
+  background: #f5f5f5;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.territory-cancel-btn:hover {
+  background: #eee;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .territory-form-panel {
+    padding: 1.5rem;
+  }
+  
+  .territory-form-main-title {
+    font-size: 1.8rem;
+  }
+  
+  .territory-form-controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .territory-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,39 @@
+<%- include('../partials/header')%>
+<%- include('../partials/nav')%>
+
+<div class="territory-edit-container">
+  <div class="territory-edit-card">
+    <header class="territory-edit-header">
+      <h1 class="territory-edit-title"><i class="fas fa-map-marked-alt territory-edit-icon"></i> Editar Territorio</h1>
+      <p class="territory-edit-subtitle">Actualiza los datos del dominio felino</p>
+    </header>
+
+    <form class="territory-edit-form" action="/territorios/<%= territory.id %>?_method=PUT" method="POST">
+      <div class="territory-edit-field-group">
+        <label for="editTerritoryName" class="territory-edit-label">
+          <i class="fas fa-mountain territory-field-icon"></i> Nombre del Territorio
+        </label>
+        <input 
+          type="text" 
+          name="name" 
+          id="editTerritoryName" 
+          class="territory-edit-input" 
+          value="<%= territory.name %>" 
+          required
+          placeholder="Ej: Bosques Binarios"
+        >
+      </div>
+
+      <div class="territory-edit-actions">
+        <button type="submit" class="territory-action-btn territory-update-btn">
+          <i class="fas fa-save territory-btn-icon"></i> Actualizar Territorio
+        </button>
+        <a href="/territorios" class="territory-action-btn territory-cancel-btn">
+          <i class="fas fa-times territory-btn-icon"></i> Cancelar
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/footer')%>

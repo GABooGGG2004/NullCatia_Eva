@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="cats-kingdom-edit-container">
+  <div class="cats-kingdom-edit-card">
+    <div class="cats-kingdom-edit-header">
+      <h1 class="cats-kingdom-edit-title">⚔️ Editar Clan Real</h1>
+      <p class="cats-kingdom-edit-subtitle">Actualiza los datos del Clan <%= clan.name %></p>
+    </div>
+    
+    <form class="cats-kingdom-edit-form" action="/clanes/<%= clan.id %>?_method=PUT" method="POST">
+      <div class="cats-kingdom-form-group">
+        <label for="name" class="cats-kingdom-form-label">Nombre del Clan</label>
+        <input type="text" name="name" id="name" class="cats-kingdom-form-input" value="<%= clan.name %>" required placeholder="Nombre del clan">
+        <span class="cats-kingdom-form-icon"><i class="fas fa-flag"></i></span>
+      </div>
+      
+      <div class="cats-kingdom-form-group">
+        <label for="territory_id" class="cats-kingdom-form-label">Territorio Ancestral</label>
+        <div class="cats-kingdom-select-wrapper">
+          <select name="territory_id" id="territory_id" class="cats-kingdom-form-select" required>
+            <% territories.forEach(territory => { %>
+              <option value="<%= territory.id %>" <%= territory.id === clan.territory_id ? 'selected' : '' %>><%= territory.name %></option>
+            <% }) %>
+          </select>
+          <span class="cats-kingdom-select-arrow"><i class="fas fa-chevron-down"></i></span>
+        </div>
+      </div>
+      
+      <div class="cats-kingdom-form-actions">
+        <button type="submit" class="cats-kingdom-btn cats-kingdom-btn-update">
+          <i class="fas fa-sync-alt"></i> Actualizar Clan
+        </button>
+        <a href="/clanes" class="cats-kingdom-btn cats-kingdom-btn-cancel">
+          <i class="fas fa-times"></i> Cancelar
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

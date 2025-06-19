@@ -1,0 +1,423 @@
+/* ===== TERRITORY EDIT - INTERFACE MODERNA Y LUJOSA ===== */
+
+/* Variables CSS personalizadas */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --territory-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  --territory-alt-gradient: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  --light-gradient: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --accent-color: #4facfe;
+  --territory-color: #11998e;
+  --territory-alt-color: #38ef7d;
+  --success-color: #00d4aa;
+  --warning-color: #ff6b6b;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --text-light: #bdc3c7;
+  --background-primary: #f8f9fa;
+  --background-secondary: #ffffff;
+  --border-color: #e9ecef;
+  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.2);
+  --border-radius: 12px;
+  --border-radius-lg: 20px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Container principal */
+.territory-edit-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 30%, #2ecc71 70%, #27ae60 100%);
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.territory-edit-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="terrain" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M20,80 Q40,60 60,80 Q80,60 100,80" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="1"/><path d="M0,70 Q20,50 40,70 Q60,50 80,70" stroke="rgba(255,255,255,0.05)" fill="none" stroke-width="1"/><circle cx="75" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="25" cy="15" r="1" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23terrain)"/></svg>');
+  pointer-events: none;
+}
+
+/* Card principal */
+.territory-edit-card {
+  background: var(--background-secondary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-heavy);
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.territory-edit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--territory-gradient);
+}
+
+/* Header de la card */
+.territory-edit-header {
+  padding: 2.5rem 2rem 1.5rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(17, 153, 142, 0.05) 0%, rgba(56, 239, 125, 0.05) 100%);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.territory-edit-header::after {
+  content: '🗺️';
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 1.5rem;
+  opacity: 0.3;
+}
+
+.territory-edit-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+  background: var(--territory-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.territory-edit-icon {
+  background: var(--territory-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.8rem;
+}
+
+.territory-edit-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Formulario */
+.territory-edit-form {
+  padding: 2rem;
+}
+
+.territory-edit-field-group {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.territory-edit-label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.territory-field-icon {
+  color: var(--territory-color);
+  font-size: 1rem;
+  background: linear-gradient(135deg, rgba(17, 153, 142, 0.1) 0%, rgba(56, 239, 125, 0.1) 100%);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Input */
+.territory-edit-input {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  background: var(--background-secondary);
+  transition: var(--transition);
+  box-sizing: border-box;
+  font-weight: 500;
+}
+
+.territory-edit-input:focus {
+  outline: none;
+  border-color: var(--territory-color);
+  box-shadow: 0 0 0 3px rgba(17, 153, 142, 0.1);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(17, 153, 142, 0.02) 0%, rgba(56, 239, 125, 0.02) 100%);
+}
+
+.territory-edit-input::placeholder {
+  color: var(--text-light);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.territory-edit-input:hover {
+  border-color: var(--territory-alt-color);
+  transform: translateY(-1px);
+}
+
+/* Acciones del formulario */
+.territory-edit-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+/* Botones */
+.territory-action-btn {
+  padding: 1.25rem 2rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 180px;
+  box-shadow: var(--shadow-light);
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+}
+
+.territory-action-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.territory-action-btn:hover::before {
+  left: 100%;
+}
+
+.territory-btn-icon {
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.territory-update-btn {
+  background: var(--territory-gradient);
+  color: white;
+  border: 2px solid transparent;
+}
+
+.territory-update-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+  background: var(--territory-alt-gradient);
+}
+
+.territory-update-btn:hover .territory-btn-icon {
+  transform: rotate(360deg);
+}
+
+.territory-cancel-btn {
+  background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+  color: white;
+  border: 2px solid transparent;
+}
+
+.territory-cancel-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+  background: linear-gradient(135deg, #7f8c8d 0%, #95a5a6 100%);
+}
+
+.territory-cancel-btn:hover .territory-btn-icon {
+  transform: rotate(90deg);
+}
+
+/* Animaciones de entrada */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.territory-edit-card {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.territory-edit-header {
+  animation: slideInUp 0.6s ease-out;
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
+.territory-edit-field-group {
+  animation: slideInUp 0.6s ease-out;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+.territory-edit-actions {
+  animation: slideInUp 0.6s ease-out;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+/* Efectos especiales para territorios */
+.territory-edit-input:focus::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--territory-gradient);
+  border-radius: var(--border-radius);
+  z-index: -1;
+}
+
+/* Partículas flotantes de fondo */
+.territory-edit-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)" opacity="0.8"><animate attributeName="cy" values="50;30;50" dur="4s" repeatCount="indefinite"/></circle><circle cx="150" cy="100" r="1.5" fill="rgba(255,255,255,0.08)" opacity="0.6"><animate attributeName="cy" values="100;80;100" dur="5s" repeatCount="indefinite"/></circle><circle cx="100" cy="150" r="1" fill="rgba(255,255,255,0.06)" opacity="0.4"><animate attributeName="cy" values="150;130;150" dur="6s" repeatCount="indefinite"/></circle></svg>');
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .territory-edit-container {
+    padding: 1rem;
+  }
+  
+  .territory-edit-card {
+    max-width: 100%;
+  }
+  
+  .territory-edit-header {
+    padding: 2rem 1.5rem 1rem;
+  }
+  
+  .territory-edit-header::after {
+    top: 0.5rem;
+    right: 1.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .territory-edit-title {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .territory-edit-form {
+    padding: 1.5rem;
+  }
+  
+  .territory-edit-actions {
+    flex-direction: column;
+  }
+  
+  .territory-action-btn {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .territory-edit-title {
+    font-size: 1.25rem;
+  }
+  
+  .territory-edit-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .territory-edit-input {
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+  }
+  
+  .territory-edit-label {
+    font-size: 0.85rem;
+  }
+  
+  .territory-field-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .territory-action-btn {
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,100 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="parchment-form-main">
+  <div class="parchment-form-panel">
+    <header class="parchment-form-header">
+      <h1 class="parchment-form-title"><i class="fas fa-scroll parchment-title-icon"></i> Nuevo Pergamino</h1>
+      <p class="parchment-form-description">Registra un nuevo conocimiento ancestral felino</p>
+      
+      <% if (locals.error && error.message) { %>
+        <div class="alert-message error">
+          <i class="fas fa-exclamation-circle"></i>
+          <p><%= error.message %></p>
+        </div>
+      <% } %>
+    </header>
+
+    <form class="parchment-data-form" action="/scrolls" method="POST">
+      <!-- Grupo de título -->
+      <div class="parchment-field-group">
+        <label for="parchmentTitle" class="parchment-field-label">
+          <i class="fas fa-heading parchment-label-icon"></i> Título del Pergamino
+        </label>
+        <input 
+          type="text" 
+          name="title" 
+          id="parchmentTitle" 
+          class="parchment-text-input <%= locals.error && error.field === 'title' ? 'input-error' : '' %>" 
+          required 
+          placeholder="Ej: Secretos del Código Ancestral"
+          aria-describedby="parchmentTitleHelp"
+          value="<%= locals.scrollData ? scrollData.title : '' %>"
+        >
+        <% if (locals.error && error.field === 'title') { %>
+          <span class="error-text"><i class="fas fa-exclamation-triangle"></i> <%= error.message %></span>
+        <% } %>
+        <small id="parchmentTitleHelp" class="parchment-field-hint">Máximo 100 caracteres</small>
+      </div>
+
+      <!-- Grupo de contenido -->
+      <div class="parchment-field-group">
+        <label for="parchmentContent" class="parchment-field-label">
+          <i class="fas fa-align-left parchment-label-icon"></i> Contenido
+        </label>
+        <textarea 
+          name="content" 
+          id="parchmentContent" 
+          class="parchment-content-input <%= locals.error && error.field === 'content' ? 'input-error' : '' %>" 
+          required 
+          placeholder="Escribe aquí el conocimiento sagrado..."
+          rows="6"
+          aria-describedby="parchmentContentHelp"
+        ><%= locals.scrollData ? scrollData.content : '' %></textarea>
+        <% if (locals.error && error.field === 'content') { %>
+          <span class="error-text"><i class="fas fa-exclamation-triangle"></i> <%= error.message %></span>
+        <% } %>
+        <small id="parchmentContentHelp" class="parchment-field-hint">Usa markdown para formato</small>
+      </div>
+
+      <!-- Grupo de autor -->
+      <div class="parchment-field-group">
+        <label for="parchmentAuthor" class="parchment-field-label">
+          <i class="fas fa-paw parchment-label-icon"></i> Gato Autor
+        </label>
+        <select 
+          name="cat_id" 
+          id="parchmentAuthor" 
+          class="parchment-author-select <%= locals.error && error.field === 'cat_id' ? 'input-error' : '' %>" 
+          required
+          aria-describedby="parchmentAuthorHelp"
+        >
+          <% cats.forEach(cat => { %>
+            <option 
+              value="<%= cat.id %>"
+              <%= (locals.scrollData && scrollData.cat_id == cat.id) ? 'selected' : '' %>
+            >
+              <%= cat.name %>
+            </option>
+          <% }) %>
+        </select>
+        <% if (locals.error && error.field === 'cat_id') { %>
+          <span class="error-text"><i class="fas fa-exclamation-triangle"></i> <%= error.message %></span>
+        <% } %>
+        <small id="parchmentAuthorHelp" class="parchment-field-hint">Selecciona un gato registrado</small>
+      </div>
+
+      <!-- Acciones del formulario -->
+      <div class="parchment-form-actions">
+        <button type="submit" class="parchment-action-btn parchment-save-btn">
+          <i class="fas fa-save parchment-btn-icon"></i> Guardar Pergamino
+        </button>
+        <a href="/scrolls" class="parchment-action-btn parchment-cancel-btn">
+          <i class="fas fa-times parchment-btn-icon"></i> Cancelar
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

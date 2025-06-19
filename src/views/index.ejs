@@ -1,0 +1,100 @@
+<%- include('./partials/header') %>
+<%- include('./partials/nav') %>
+
+  <body class="nullcatia-body">
+
+      <main class="nullcatia-main">
+        <!-- Hero Section con Lore -->
+        <section class="nullcatia-hero">
+          <div class="nullcatia-hero-content">
+            <h1 class="nullcatia-hero-title">Bienvenido a <span>NULLCATIA</span></h1>
+            <div class="nullcatia-hero-lore">
+              <p><i class="fas fa-quote-left" style="color: var(--accent); margin-right: 8px;"></i>Un vasto reino
+                digital habitado por miles de gatitos nulos que nacen sin valores predeterminados.<i
+                  class="fas fa-quote-right" style="color: var(--accent); margin-left: 8px;"></i></p>
+              <p>Cada gatito pertenece a un Clan que custodia los sagrados territorios digitales:</p>
+              <ul class="nullcatia-territories">
+                <li><i class="fas fa-tree"></i> Bosques Binarios</li>
+                <li><i class="fas fa-water"></i> Ríos de Paquetes</li>
+                <li><i class="fas fa-mountain"></i> Montañas de Índices</li>
+                <li><i class="fas fa-layer-group"></i> Praderas de Pila</li>
+              </ul>
+              <a href="/explorar" class="nullcatia-btn nullcatia-btn-primary">
+                <i class="fas fa-map-marked-alt"></i> Explorar Territorios
+              </a>
+            </div>
+          </div>
+          <div class="nullcatia-hero-image">
+            <img src="/img/imgNullCatia1.jpg" alt="Reino de NULLCATIA">
+          </div>
+        </section>
+
+        <!-- Artefactos Legendarios -->
+        <section class="nullcatia-artifacts">
+          <h2 class="nullcatia-section-title">Los Tres Artefactos Legendarios</h2>
+          <div class="nullcatia-artifacts-grid">
+            <div class="nullcatia-artifact">
+              <div class="nullcatia-artifact-icon">
+                <i class="fas fa-fill-drip"></i>
+              </div>
+              <h3>El Pool de Conexiones Eternas</h3>
+              <p><i class="fas fa-paw" style="color: var(--accent); margin-right: 8px;"></i>Un cántaro encantado que
+                gestiona las corrientes de bits evitando que los gatitos ahoguen el nodo.</p>
+              <div style="margin-top: 20px;">
+                <i class="fas fa-shield-alt" style="color: var(--secondary); margin-right: 5px;"></i>
+                <small>Protege contra: Connection leaks</small>
+              </div>
+            </div>
+
+            <div class="nullcatia-artifact">
+              <div class="nullcatia-artifact-icon">
+                <i class="fas fa-balance-scale"></i>
+              </div>
+              <h3>Los Controladores del Equilibrio</h3>
+              <p><i class="fas fa-paw" style="color: var(--accent); margin-right: 8px;"></i>Monjes que validan cada
+                petición y repelen dependencias circulares con la fuerza del async/await.</p>
+              <div style="margin-top: 20px;">
+                <i class="fas fa-shield-alt" style="color: var(--secondary); margin-right: 5px;"></i>
+                <small>Protege contra: Circular dependencies</small>
+              </div>
+            </div>
+
+            <div class="nullcatia-artifact">
+              <div class="nullcatia-artifact-icon">
+                <i class="fas fa-project-diagram"></i>
+              </div>
+              <h3>El Enrutador de los Mil Caminos</h3>
+              <p><i class="fas fa-paw" style="color: var(--accent); margin-right: 8px;"></i>Un laberinto ordenado en
+                capas donde cada endpoint RESTful revela un pedazo de la memoria gatuna.</p>
+              <div style="margin-top: 20px;">
+                <i class="fas fa-shield-alt" style="color: var(--secondary); margin-right: 5px;"></i>
+                <small>Protege contra: 404 Not Found</small>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Desafío Supremo -->
+        <section class="nullcatia-challenge">
+          <div class="nullcatia-challenge-content">
+            <h2 class="nullcatia-section-title">Desafío Supremo: <span>El Laberinto de Enrutamiento</span></h2>
+            <p><i class="fas fa-quote-left" style="color: var(--accent); margin-right: 8px;"></i>En el corazón del reino
+              se alza El Laberinto de Enrutamiento, un entramado infinito de caminos REST que amenaza con perder cada
+              petición en bucles sin fin.<i class="fas fa-quote-right"
+                style="color: var(--accent); margin-left: 8px;"></i></p>
+            <p>Felix, Serafina y Captain Middleware deberán diseñar rutas declarativas, controladores desacoplados y un
+              sistema central de manejo de errores para superar este desafío.</p>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+              <a href="/clanes" class="nullcatia-btn nullcatia-btn-primary">
+                <i class="fas fa-door-open"></i> Ingresar al Reino
+              </a>
+            </div>
+          </div>
+          <div class="nullcatia-challenge-image">
+            <img src="/img/imgNullCatia2.jpg" alt="Laberinto de Enrutamiento">
+          </div>
+        </section>
+      </main>
+
+  </body>
+  <%- include('./partials/footer') %>

@@ -1,0 +1,23 @@
+@import url('./components/navBar.css');
+@import url('./components/footer.css');
+@import url('./components/index.css');
+
+/*Css de views cats*/
+@import url('./components/cats/editCats.css');
+@import url('./components/cats/listCat.css');
+@import url('./components/cats/formCats.css');
+
+/*Css de views Clans*/
+@import url('./components/clans/formClans.css');
+@import url('./components/clans/listClans.css');
+@import url('./components/clans/editClans.css');
+
+/*Css de  views de Scrolls*/
+@import url('./components/scroll/formScroll.css');
+@import url('./components/scroll/listScrolls.css');
+@import url('./components/scroll/editScroll.css');
+
+/*Css de views de territory*/
+@import url('./components/territory/listTerritory.css');
+@import url('./components/territory/territoryForm.css');
+@import url('./components/territory/editTerritoty.css');

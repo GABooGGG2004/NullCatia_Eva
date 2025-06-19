@@ -1,0 +1,87 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="cats-kingdom-form-container">
+  <div class="cats-kingdom-form-card">
+    <div class="cats-kingdom-form-header">
+      <h1 class="cats-kingdom-form-title"><i class="fas fa-crown"></i> Nuevo Gatito Real</h1>
+      <p class="cats-kingdom-form-subtitle">Registra un nuevo miembro de la nobleza felina</p>
+      
+      <% if (locals.error && error.message) { %>
+        <div class="alert-message error">
+          <i class="fas fa-exclamation-circle"></i>
+          <p><%= error.message %></p>
+        </div>
+      <% } %>
+    </div>
+    
+    <form class="cats-kingdom-form" action="/gatitos" method="POST">
+      <div class="cats-kingdom-form-group">
+        <label for="name" class="cats-kingdom-form-label"><i class="fas fa-paw"></i> Nombre del Gatito</label>
+        <input 
+          type="text" 
+          name="name" 
+          id="name" 
+          class="cats-kingdom-form-input <%= locals.error && error.field === 'name' ? 'input-error' : '' %>" 
+          required 
+          placeholder="Ej: Sir Whiskers"
+          value="<%= locals.catData ? catData.name : '' %>"
+        >
+        <% if (locals.error && error.field === 'name') { %>
+          <span class="error-text"><i class="fas fa-exclamation-triangle"></i> <%= error.message %></span>
+        <% } %>
+      </div>
+      
+      <div class="cats-kingdom-form-group">
+        <label for="age" class="cats-kingdom-form-label"><i class="fas fa-birthday-cake"></i> Edad (en años)</label>
+        <input 
+          type="number" 
+          name="age" 
+          id="age" 
+          class="cats-kingdom-form-input <%= locals.error && error.field === 'age' ? 'input-error' : '' %>" 
+          required 
+          placeholder="Ej: 3" 
+          min="0" 
+          max="30"
+          value="<%= locals.catData ? catData.age : '' %>"
+        >
+        <% if (locals.error && error.field === 'age') { %>
+          <span class="error-text"><i class="fas fa-exclamation-triangle"></i> <%= error.message %></span>
+        <% } %>
+      </div>
+      
+      <div class="cats-kingdom-form-group">
+        <label for="clan_id" class="cats-kingdom-form-label"><i class="fas fa-flag"></i> Clan de Pertenencia</label>
+        <select 
+          name="clan_id" 
+          id="clan_id" 
+          class="cats-kingdom-form-select <%= locals.error && error.field === 'clan_id' ? 'input-error' : '' %>" 
+          required
+        >
+          <% clans.forEach(clan => { %>
+            <option 
+              value="<%= clan.id %>"
+              <%= (locals.catData && catData.clan_id == clan.id) ? 'selected' : '' %>
+            >
+              <%= clan.name %>
+            </option>
+          <% }) %>
+        </select>
+        <% if (locals.error && error.field === 'clan_id') { %>
+          <span class="error-text"><i class="fas fa-exclamation-triangle"></i> <%= error.message %></span>
+        <% } %>
+      </div>
+      
+      <div class="cats-kingdom-form-actions">
+        <button class="cats-kingdom-btn cats-kingdom-btn-submit" type="submit">
+          <i class="fas fa-save"></i> Guardar Gatito Real
+        </button>
+        <a href="/gatitos" class="cats-kingdom-btn cats-kingdom-btn-cancel">
+          <i class="fas fa-times"></i> Cancelar
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

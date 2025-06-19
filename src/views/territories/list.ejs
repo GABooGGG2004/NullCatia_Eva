@@ -1,0 +1,73 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+<!-- Agrega Font Awesome desde CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="index.css/formClans.css">
+
+<div class="territory-kingdom-container">
+  <div class="territory-kingdom-header">
+    <h1 class="territory-kingdom-title"><i class="fas fa-map-marked-alt"></i> Territorios del Reino</h1>
+    <p class="territory-kingdom-subtitle">Dominios sagrados de los clanes felinos</p>
+    <a href="/territorios/nuevo" class="territory-btn territory-btn-primary">
+      <i class="fas fa-plus-circle"></i> Nuevo Territorio
+    </a>
+  </div>
+
+  <!-- Mensajes condicionales -->
+  <% if (locals.success && success.length > 0) { %>
+    <div class="alert-message success">
+      <i class="fas fa-check-circle"></i>
+      <p><%= success %></p>
+    </div>
+  <% } %>
+
+  <% if (locals.error && error.length > 0) { %>
+    <div class="alert-message error">
+      <i class="fas fa-exclamation-circle"></i>
+      <p><%= error %></p>
+    </div>
+  <% } %>
+
+  <div class="territory-table-container">
+    <table class="territory-data-table">
+      <thead class="territory-table-head">
+        <tr>
+          <th class="territory-table-header">Nombre del Territorio</th>
+          <th class="territory-table-header">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="territory-table-body">
+        <% if (territories && territories.length > 0) { %>
+          <% territories.forEach(t => { %>
+            <tr class="territory-table-row">
+              <td class="territory-table-data">
+                <span class="territory-name">
+                  <i class="fas fa-map-marked-alt"></i>
+                  <%= t.name %>
+                </span>
+              </td>
+              <td class="territory-actions">
+                <a href="/territorios/<%= t.id %>/editar" class="territory-btn territory-edit-btn">
+                  <i class="fas fa-edit"></i> Editar
+                </a>
+                <form action="/territorios/<%= t.id %>?_method=DELETE" method="POST" class="territory-inline-form">
+                  <button type="submit" class="territory-btn territory-delete-btn" onclick="return confirm('¿Estás seguro de eliminar este territorio?')">
+                    <i class="fas fa-trash-alt"></i> Eliminar
+                  </button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr class="territory-table-row">
+            <td colspan="2" class="territory-table-data territory-empty-message">
+              <i class="fas fa-map"></i> No hay territorios registrados
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

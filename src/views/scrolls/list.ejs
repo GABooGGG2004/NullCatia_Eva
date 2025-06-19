@@ -1,0 +1,84 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+<!-- Agrega Font Awesome desde CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="index.css/formClans.css">
+
+<div class="cats-kingdom-container">
+  <div class="cats-kingdom-header">
+    <h1 class="cats-kingdom-title"><i class="fas fa-scroll"></i> Pergaminos Ancestrales</h1>
+    <p class="cats-kingdom-subtitle">Sabiduría gatuna codificada en consultas legendarias</p>
+    <a href="/scrolls/nuevo" class="cats-kingdom-btn cats-kingdom-btn-primary">
+      <i class="fas fa-feather-alt"></i> Nuevo Pergamino
+    </a>
+  </div>
+
+  <!-- Mensajes condicionales -->
+  <% if (locals.success && success.length > 0) { %>
+    <div class="alert-message success">
+      <i class="fas fa-check-circle"></i>
+      <p><%= success %></p>
+    </div>
+  <% } %>
+
+  <% if (locals.error && error.length > 0) { %>
+    <div class="alert-message error">
+      <i class="fas fa-exclamation-circle"></i>
+      <p><%= error %></p>
+    </div>
+  <% } %>
+
+  <div class="cats-kingdom-table-container">
+    <table class="cats-kingdom-table">
+      <thead class="cats-kingdom-thead">
+        <tr>
+          <th class="cats-kingdom-th">Título</th>
+          <th class="cats-kingdom-th">Fragmento</th>
+          <th class="cats-kingdom-th">Autor Felino</th>
+          <th class="cats-kingdom-th">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="cats-kingdom-tbody">
+        <% if (scrolls && scrolls.length > 0) { %>
+          <% scrolls.forEach(scroll => { %>
+            <tr class="cats-kingdom-tr">
+              <td class="cats-kingdom-td">
+                <span class="cats-kingdom-scroll-title">
+                  <i class="fas fa-scroll"></i> <%= scroll.title %>
+                </span>
+              </td>
+              <td class="cats-kingdom-td">
+                <div class="cats-kingdom-scroll-preview">
+                  <%= scroll.content.substring(0, 60) %>...
+                </div>
+              </td>
+              <td class="cats-kingdom-td">
+                <span class="cats-kingdom-author-badge">
+                  <i class="fas fa-paw"></i> <%= scroll.cat_name %>
+                </span>
+              </td>
+              <td class="cats-kingdom-td cats-kingdom-actions">
+                <a href="/scrolls/<%= scroll.id %>/editar" class="cats-kingdom-btn cats-kingdom-btn-edit">
+                  <i class="fas fa-edit"></i> Editar
+                </a>
+                <form action="/scrolls/<%= scroll.id %>?_method=DELETE" method="POST" class="cats-kingdom-form-inline">
+                  <button type="submit" class="cats-kingdom-btn cats-kingdom-btn-delete" onclick="return confirm('¿Estás seguro de eliminar este pergamino?')">
+                    <i class="fas fa-trash-alt"></i> Eliminar
+                  </button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr class="cats-kingdom-tr">
+            <td colspan="4" class="cats-kingdom-td cats-kingdom-empty-message">
+              <i class="fas fa-book-open"></i> No hay pergaminos registrados
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

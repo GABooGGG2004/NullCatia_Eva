@@ -1,0 +1,76 @@
+<%- include('../partials/header')%>
+<%- include('../partials/nav')%>
+
+<div class="cats-kingdom-clans-container">
+  <div class="cats-kingdom-clans-header">
+    <h1 class="cats-kingdom-clans-title"><i class="fas fa-chess-rook"></i> Clanes Felinos del Reino</h1>
+    <p class="cats-kingdom-clans-subtitle">Administra los nobles clanes de nuestros gatitos</p>
+    <a href="/clanes/nuevo" class="cats-kingdom-btn cats-kingdom-btn-primary">
+      <i class="fas fa-plus-circle"></i> Nuevo Clan
+    </a>
+  </div>
+
+  <% if (locals.success && success.length > 0) { %>
+    <div class="alert-message success">
+      <i class="fas fa-check-circle"></i>
+      <p><%= success %></p>
+    </div>
+  <% } %>
+
+  <% if (locals.error && error.length > 0) { %>
+    <div class="alert-message error">
+      <i class="fas fa-exclamation-circle"></i>
+      <p><%= error %></p>
+    </div>
+  <% } %>
+
+  <div class="cats-kingdom-table-container">
+    <table class="cats-kingdom-table">
+      <thead class="cats-kingdom-thead">
+        <tr>
+          <th class="cats-kingdom-th">Nombre del Clan</th>
+          <th class="cats-kingdom-th">Territorio</th>
+          <th class="cats-kingdom-th">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="cats-kingdom-tbody">
+        <% if (clans && clans.length > 0) { %>
+          <% clans.forEach(clan => { %>
+            <tr class="cats-kingdom-tr">
+              <td class="cats-kingdom-td">
+                <span class="cats-kingdom-clan-name">
+                  <i class="fas fa-flag"></i>
+                  <%= clan.name %>
+                </span>
+              </td>
+              <td class="cats-kingdom-td">
+                <span class="cats-kingdom-territory-badge">
+                  <i class="fas fa-map-marked-alt"></i>
+                  <%= clan.territory_name %>
+                </span>
+              </td>
+              <td class="cats-kingdom-td cats-kingdom-actions">
+                <a href="/clanes/<%= clan.id %>/editar" class="cats-kingdom-btn cats-kingdom-btn-edit">
+                  <i class="fas fa-edit"></i> Editar
+                </a>
+                <form action="/clanes/<%= clan.id %>?_method=DELETE" method="POST" class="cats-kingdom-form-inline">
+                  <button type="submit" class="cats-kingdom-btn cats-kingdom-btn-delete" onclick="return confirm('¿Estás seguro de eliminar este noble clan?')">
+                    <i class="fas fa-trash-alt"></i> Eliminar
+                  </button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr class="cats-kingdom-tr">
+            <td colspan="3" class="cats-kingdom-td cats-kingdom-empty-message">
+              <i class="fas fa-fort-awesome"></i> No hay clanes registrados en el reino
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%- include('../partials/footer')%>

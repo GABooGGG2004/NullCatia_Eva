@@ -1,0 +1,78 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="cats-kingdom-container">
+  <div class="cats-kingdom-header">
+    <h1 class="cats-kingdom-title"><i class="fas fa-crown"></i> Gatitos del Reino <i class="fas fa-castle"></i></h1>
+    <p class="cats-kingdom-subtitle">Administra los nobles felinos de nuestro reino</p>
+    <a href="/gatitos/nuevo" class="cats-kingdom-btn cats-kingdom-btn-primary">
+      <i class="fas fa-plus-circle"></i> Nuevo Gatito
+    </a>
+  </div>
+
+  <% if (locals.success && success.length > 0) { %>
+    <div class="alert-message success">
+      <i class="fas fa-check-circle"></i>
+      <p><%= success %></p>
+    </div>
+  <% } %>
+
+  <% if (locals.error && error.length > 0) { %>
+    <div class="alert-message error">
+      <i class="fas fa-exclamation-circle"></i>
+      <p><%= error %></p>
+    </div>
+  <% } %>
+
+  <div class="cats-kingdom-table-container">
+    <table class="cats-kingdom-table">
+      <thead class="cats-kingdom-thead">
+        <tr>
+          <th class="cats-kingdom-th">Nombre</th>
+          <th class="cats-kingdom-th">Edad</th>
+          <th class="cats-kingdom-th">Clan</th>
+          <th class="cats-kingdom-th">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="cats-kingdom-tbody">
+        <% if (cats && cats.length > 0) { %>
+          <% cats.forEach(cat => { %>
+            <tr class="cats-kingdom-tr">
+              <td class="cats-kingdom-td">
+                <span class="cats-kingdom-name">
+                  <i class="fas fa-cat"></i> <%= cat.name %>
+                </span>
+              </td>
+              <td class="cats-kingdom-td cats-kingdom-age">
+                <span class="age-badge"><%= cat.age %> años</span>
+              </td>
+              <td class="cats-kingdom-td">
+                <span class="cats-kingdom-clan-badge">
+                  <i class="fas fa-flag"></i> <%= cat.clan_name %>
+                </span>
+              </td>
+              <td class="cats-kingdom-td cats-kingdom-actions">
+                <a href="/gatitos/<%= cat.id %>/editar" class="cats-kingdom-btn cats-kingdom-btn-edit">
+                  <i class="fas fa-edit"></i> Editar
+                </a>
+                <form action="/gatitos/<%= cat.id %>?_method=DELETE" method="POST" class="cats-kingdom-form-inline">
+                  <button type="submit" class="cats-kingdom-btn cats-kingdom-btn-delete" onclick="return confirm('¿Estás seguro de eliminar este noble gatito?')">
+                    <i class="fas fa-trash-alt"></i> Eliminar
+                  </button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr class="cats-kingdom-tr">
+            <td colspan="4" class="cats-kingdom-td cats-kingdom-empty-message">
+              <i class="fas fa-paw"></i> No hay gatitos registrados en el reino
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,199 @@
+/* Contenedor principal */
+.territory-kingdom-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Encabezado */
+.territory-kingdom-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.territory-kingdom-title {
+  color: #3a5683;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.territory-kingdom-title i {
+  margin-right: 10px;
+}
+
+.territory-kingdom-subtitle {
+  color: #5d7cb3;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Mensajes */
+/* Estilos para mensajes condicionales */
+.alert-message {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin: 1rem auto;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.alert-message.success {
+  background-color: #edf7ed;
+  color: #2e7d32;
+  border-left: 4px solid #2e7d32;
+}
+
+.alert-message.error {
+  background-color: #fdecea;
+  color: #d32f2f;
+  border-left: 4px solid #d32f2f;
+}
+
+/* Mensaje para tabla vacía */
+.territory-empty-message {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+}
+
+.territory-empty-message i {
+  margin-right: 10px;
+  color: #5d7cb3;
+}
+/* Tabla */
+.territory-table-container {
+  overflow-x: auto;
+  margin-top: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+.territory-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.territory-table-head {
+  background-color: #3a5683;
+}
+
+.territory-table-header {
+  padding: 1rem;
+  text-align: left;
+  color: white;
+  font-weight: 500;
+}
+
+.territory-table-body {
+  background-color: #fff;
+}
+
+.territory-table-row {
+  border-bottom: 1px solid #e0e5ff;
+  transition: background-color 0.2s ease;
+}
+
+.territory-table-row:hover {
+  background-color: #f9faff;
+}
+
+.territory-table-data {
+  padding: 1rem;
+  color: #333;
+}
+
+.territory-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.territory-name i {
+  color: #5d7cb3;
+}
+
+/* Botones */
+.territory-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: none;
+}
+
+.territory-btn-primary {
+  background: linear-gradient(135deg, #5d7cb3 0%, #3a5683 100%);
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.territory-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(93, 124, 179, 0.3);
+}
+
+.territory-edit-btn {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.territory-edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.territory-delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.territory-delete-btn:hover {
+  background-color: #c82333;
+}
+
+.territory-actions {
+  display: flex;
+  gap: 0.8rem;
+  padding: 1rem;
+}
+
+.territory-inline-form {
+  display: inline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .territory-kingdom-title {
+    font-size: 1.8rem;
+  }
+  
+  .territory-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .territory-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,79 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="parchment-edit-container">
+  <div class="parchment-edit-card">
+    <header class="parchment-edit-header">
+      <h1 class="parchment-edit-title"><i class="fas fa-scroll parchment-edit-icon"></i> Editar Pergamino</h1>
+      <p class="parchment-edit-subtitle">Actualiza el conocimiento ancestral felino</p>
+    </header>
+
+    <form class="parchment-edit-form" action="/scrolls/<%= scroll.id %>?_method=PUT" method="POST">
+      <!-- Grupo Título -->
+      <div class="parchment-edit-field-group">
+        <label for="editParchmentTitle" class="parchment-edit-label">
+          <i class="fas fa-heading parchment-field-icon"></i> Título
+        </label>
+        <input 
+        type="text" 
+        name="title" 
+        id="editParchmentTitle" 
+        class="parchment-edit-input" 
+        value="<%= scroll.title %>" 
+        required
+          placeholder="Ingrese el título del pergamino"
+          >
+        </div>
+        
+        <!-- Grupo Contenido -->
+        <div class="parchment-edit-field-group">
+          <label for="editParchmentContent" class="parchment-edit-label">
+            <i class="fas fa-align-left parchment-field-icon"></i> Contenido
+          </label>
+        <textarea 
+          name="content" 
+          id="editParchmentContent" 
+          class="parchment-edit-textarea" 
+          required
+          rows="8"
+          ><%= scroll.content %></textarea>
+        </div>
+        
+      <!-- Grupo Autor -->
+      <div class="parchment-edit-field-group">
+        <label for="editParchmentAuthor" class="parchment-edit-label">
+          <i class="fas fa-paw parchment-field-icon"></i> Gato Autor
+        </label>
+        <div class="parchment-edit-select-wrapper">
+          <select 
+          name="cat_id" 
+          id="editParchmentAuthor" 
+          class="parchment-edit-select" 
+          required
+          >
+          <% cats.forEach(cat => { %>
+            <option 
+            value="<%= cat.id %>" 
+            <%= cat.id === scroll.cat_id ? 'selected' : '' %>
+            >
+            <%= cat.name %>
+              </option>
+            <% }) %>
+          </select>
+          <i class="fas fa-chevron-down parchment-select-arrow"></i>
+        </div>
+      </div>
+      
+      <!-- Acciones del Formulario -->
+      <div class="parchment-edit-actions">
+        <button type="submit" class="parchment-edit-btn parchment-update-btn">
+          <i class="fas fa-save parchment-btn-icon"></i> Actualizar Pergamino
+        </button>
+        <a href="/scrolls" class="parchment-edit-btn parchment-cancel-btn">
+          <i class="fas fa-times parchment-btn-icon"></i> Cancelar
+        </a>
+      </div>
+    </form>
+  </div>
+</div
+  <%- include('../partials/footer') %>

@@ -1,0 +1,69 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="cats-kingdom-clan-form-container">
+  <div class="cats-kingdom-clan-form-card">
+    <div class="cats-kingdom-clan-form-header">
+      <h1 class="cats-kingdom-clan-form-title"><i class="fas fa-chess-rook"></i> Fundar Nuevo Clan</h1>
+      <p class="cats-kingdom-clan-form-subtitle">Establece un nuevo territorio felino en el reino</p>
+      
+      <% if (locals.error && error.message) { %>
+        <div class="alert-message error">
+          <i class="fas fa-exclamation-circle"></i>
+          <p><%= error.message %></p>
+        </div>
+      <% } %>
+    </div>
+
+    <form class="cats-kingdom-clan-form" action="/clanes" method="POST">
+      <div class="cats-kingdom-form-group">
+        <label for="name" class="cats-kingdom-form-label"><i class="fas fa-flag"></i> Nombre del Clan</label>
+        <input 
+          type="text" 
+          name="name" 
+          id="name" 
+          class="cats-kingdom-form-input <%= locals.error && error.field === 'name' ? 'input-error' : '' %>" 
+          required
+          placeholder="Ej: Clan de los Bigotes Dorados"
+          value="<%= locals.clanData ? clanData.name : '' %>"
+        >
+        <% if (locals.error && error.field === 'name') { %>
+          <span class="error-text"><i class="fas fa-exclamation-triangle"></i> <%= error.message %></span>
+        <% } %>
+      </div>
+
+      <div class="cats-kingdom-form-group">
+        <label for="territory_id" class="cats-kingdom-form-label"><i class="fas fa-map-marked-alt"></i> Territorio del Reino</label>
+        <select 
+          name="territory_id" 
+          id="territory_id" 
+          class="cats-kingdom-form-select <%= locals.error && error.field === 'territory_id' ? 'input-error' : '' %>" 
+          required
+        >
+          <% territories.forEach(t => { %>
+            <option 
+              value="<%= t.id %>"
+              <%= (locals.clanData && clanData.territory_id == t.id) ? 'selected' : '' %>
+            >
+              <%= t.name %>
+            </option>
+          <% }) %>
+        </select>
+        <% if (locals.error && error.field === 'territory_id') { %>
+          <span class="error-text"><i class="fas fa-exclamation-triangle"></i> <%= error.message %></span>
+        <% } %>
+      </div>
+
+      <div class="cats-kingdom-form-actions">
+        <button type="submit" class="cats-kingdom-btn cats-kingdom-btn-submit">
+          <i class="fas fa-save"></i> Fundar Clan
+        </button>
+        <a href="/clanes" class="cats-kingdom-btn cats-kingdom-btn-cancel">
+          <i class="fas fa-times"></i> Cancelar
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

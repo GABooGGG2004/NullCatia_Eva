@@ -1,0 +1,51 @@
+<%- include('../partials/header')%>
+<%- include('../partials/nav')%>
+
+<div class="territory-form-wrapper">
+  <div class="territory-form-panel">
+    <div class="territory-form-heading">
+      <h1 class="territory-form-main-title"><i class="fas fa-map-marked-alt"></i> Nuevo Territorio</h1>
+      <p class="territory-form-description">Registra un nuevo dominio para los clanes felinos</p>
+      
+      <% if (locals.error && error.message) { %>
+        <div class="alert-message error">
+          <i class="fas fa-exclamation-circle"></i>
+          <p><%= typeof error === 'string' ? error : error.message %></p>
+        </div>
+      <% } %>
+    </div>
+    
+    <form class="territory-data-form" action="/territorios" method="POST">
+      <div class="territory-field-group">
+        <label for="territoryName" class="territory-field-label">
+          <i class="fas fa-mountain"></i> Nombre del Territorio
+        </label>
+        <div class="territory-input-wrapper">
+          <input 
+            type="text" 
+            name="name" 
+            id="territoryName" 
+            class="territory-text-input <%= locals.error && error.field === 'name' ? 'input-error' : '' %>" 
+            required 
+            placeholder="Ej: Bosques Binarios"
+            value="<%= locals.territoryData ? territoryData.name : '' %>"
+          >
+        </div>
+        <% if (locals.error && error.field === 'name') { %>
+          <span class="error-text"><i class="fas fa-exclamation-triangle"></i> <%= error.message %></span>
+        <% } %>
+      </div>
+
+      <div class="territory-form-controls">
+        <button type="submit" class="territory-action-btn territory-save-btn">
+          <i class="fas fa-save"></i> Guardar Territorio
+        </button>
+        <a href="/territorios" class="territory-action-btn territory-cancel-btn">
+          <i class="fas fa-times"></i> Cancelar
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/footer')%>

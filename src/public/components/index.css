@@ -1,0 +1,461 @@
+    :root {
+      --primary: #5a3d7a;
+      --secondary: #6d4c3d;
+      --accent: #e6b422;
+      --dark: #1e1e1e;
+      --light: #f0e8d8;
+      --success: #3d8b40;
+      --error: #d32f2f;
+      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    body.nullcatia-body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+    }
+
+    .nullcatia-main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Hero Section */
+    .nullcatia-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding: 0px 0;
+      position: relative;
+      min-height: 80vh;
+    }
+
+    .nullcatia-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 70% 30%, rgba(90, 61, 122, 0.15) 0%, transparent 60%);
+      z-index: -1;
+    }
+
+    .nullcatia-hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: var(--primary);
+      position: relative;
+      line-height: 1.2;
+    }
+
+    .nullcatia-hero-title span {
+      color: var(--secondary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .nullcatia-hero-title span::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+
+    .nullcatia-hero-lore {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 35px;
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .nullcatia-hero-lore p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .nullcatia-territories {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      padding: 0;
+      list-style: none;
+      margin: 25px 0;
+    }
+
+    .nullcatia-territories li {
+      display: flex;
+      align-items: center;
+      padding: 12px 15px;
+      background-color: rgba(109, 76, 61, 0.1);
+      border-radius: 8px;
+      transition: var(--transition);
+      font-weight: 500;
+      border-left: 3px solid var(--secondary);
+    }
+
+    .nullcatia-territories li:hover {
+      background-color: rgba(109, 76, 61, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nullcatia-territories i {
+      margin-right: 12px;
+      color: var(--secondary);
+      font-size: 1.2rem;
+      min-width: 25px;
+      text-align: center;
+    }
+
+    .nullcatia-hero-image {
+      position: relative;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+    }
+
+    .nullcatia-hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+      transition: var(--transition);
+      transform-style: preserve-3d;
+      border: 10px solid white;
+    }
+
+    .nullcatia-hero-image:hover img {
+      transform: scale(1.03) rotateY(5deg);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Artefactos */
+    .nullcatia-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      text-align: center;
+      margin: 80px 0 60px;
+      position: relative;
+      color: var(--primary);
+    }
+
+    .nullcatia-section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+
+    .nullcatia-artifacts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+
+    .nullcatia-artifact {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      transition: var(--transition);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-top: 5px solid var(--primary);
+    }
+
+    .nullcatia-artifact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+
+    .nullcatia-artifact:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .nullcatia-artifact-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 25px;
+      display: inline-block;
+      width: 90px;
+      height: 90px;
+      line-height: 90px;
+      background: linear-gradient(135deg, rgba(90, 61, 122, 0.1) 0%, rgba(90, 61, 122, 0.15) 100%);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .nullcatia-artifact:hover .nullcatia-artifact-icon {
+      transform: rotateY(180deg);
+      background: linear-gradient(135deg, rgba(90, 61, 122, 0.15) 0%, rgba(90, 61, 122, 0.2) 100%);
+    }
+
+    .nullcatia-artifact h3 {
+      color: var(--primary);
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .nullcatia-artifact p {
+      color: var(--dark);
+      opacity: 0.9;
+    }
+
+    /* Desafío */
+    .nullcatia-challenge {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding: 80px 0;
+      margin-bottom: 80px;
+      background: linear-gradient(135deg, rgba(90, 61, 122, 0.03) 0%, rgba(109, 76, 61, 0.03) 100%);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nullcatia-challenge::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(230, 180, 34, 0.05) 0%, transparent 70%);
+      z-index: -1;
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .nullcatia-challenge-content {
+      position: relative;
+      padding: 0 30px;
+    }
+
+    .nullcatia-challenge span {
+      color: var(--secondary);
+      font-weight: 600;
+      position: relative;
+    }
+
+    .nullcatia-challenge span::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .nullcatia-challenge p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    .nullcatia-challenge-image {
+      position: relative;
+      perspective: 1500px;
+    }
+
+    .nullcatia-challenge-image::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: 20px;
+      bottom: 20px;
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      z-index: -1;
+      transition: var(--transition);
+    }
+
+    .nullcatia-challenge-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+      transition: var(--transition);
+      transform: rotateY(-5deg);
+      border: 10px solid white;
+    }
+
+    .nullcatia-challenge-image:hover::before {
+      top: -25px;
+      left: -25px;
+      right: 25px;
+      bottom: 25px;
+    }
+
+    .nullcatia-challenge-image:hover img {
+      transform: rotateY(0deg);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Botones */
+    .nullcatia-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      margin-top: 20px;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .nullcatia-btn i {
+      margin-right: 12px;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .nullcatia-btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      box-shadow: 0 8px 25px rgba(90, 61, 122, 0.4);
+      z-index: 1;
+    }
+
+    .nullcatia-btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+      opacity: 0;
+      z-index: -1;
+      transition: var(--transition);
+    }
+
+    .nullcatia-btn-primary:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(90, 61, 122, 0.5);
+    }
+
+    .nullcatia-btn-primary:hover::before {
+      opacity: 1;
+    }
+
+    .nullcatia-btn-primary:hover i {
+      transform: translateX(5px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .nullcatia-hero-title {
+        font-size: 3.5rem;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .nullcatia-hero,
+      .nullcatia-challenge {
+        grid-template-columns: 1fr;
+      }
+
+      .nullcatia-hero {
+        min-height: auto;
+        padding: 60px 0;
+      }
+
+      .nullcatia-hero-content {
+        order: 2;
+      }
+
+      .nullcatia-hero-image {
+        order: 1;
+        margin-bottom: 50px;
+      }
+
+      .nullcatia-challenge-content {
+        order: 2;
+      }
+
+      .nullcatia-challenge-image {
+        order: 1;
+        margin-bottom: 50px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nullcatia-hero-title {
+        font-size: 2.8rem;
+      }
+
+      .nullcatia-section-title {
+        font-size: 2.2rem;
+      }
+
+      .nullcatia-territories {
+        grid-template-columns: 1fr;
+      }
+
+      .nullcatia-artifacts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nullcatia-hero-lore {
+        padding: 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nullcatia-hero-title {
+        font-size: 2.2rem;
+      }
+
+      .nullcatia-section-title {
+        font-size: 1.8rem;
+      }
+
+      .nullcatia-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+    }

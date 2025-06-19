@@ -1,0 +1,355 @@
+/* ===== CATS KINGDOM EDIT - INTERFACE MODERNA Y LUJOSA ===== */
+
+/* Variables CSS personalizadas */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  --light-gradient: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --accent-color: #4facfe;
+  --success-color: #00d4aa;
+  --warning-color: #ff6b6b;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --text-light: #bdc3c7;
+  --background-primary: #f8f9fa;
+  --background-secondary: #ffffff;
+  --border-color: #e9ecef;
+  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.2);
+  --border-radius: 12px;
+  --border-radius-lg: 20px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Container principal */
+.cats-kingdom-edit-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cats-kingdom-edit-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="20" cy="80" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+}
+
+/* Card principal */
+.cats-kingdom-edit-card {
+  background: var(--background-secondary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-heavy);
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cats-kingdom-edit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary-gradient);
+}
+
+/* Header de la card */
+.cats-kingdom-edit-header {
+  padding: 2.5rem 2rem 1.5rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cats-kingdom-edit-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.cats-kingdom-edit-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Formulario */
+.cats-kingdom-edit-form {
+  padding: 2rem;
+}
+
+.cats-kingdom-form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.cats-kingdom-form-label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Inputs */
+.cats-kingdom-form-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: var(--background-secondary);
+  transition: var(--transition);
+  box-sizing: border-box;
+}
+
+.cats-kingdom-form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+.cats-kingdom-form-input::placeholder {
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* Iconos de los inputs */
+.cats-kingdom-form-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.cats-kingdom-form-group:focus-within .cats-kingdom-form-icon {
+  color: var(--primary-color);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Select personalizado */
+.cats-kingdom-select-wrapper {
+  position: relative;
+}
+
+.cats-kingdom-form-select {
+  width: 100%;
+  padding: 1rem 3rem 1rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: var(--background-secondary);
+  appearance: none;
+  cursor: pointer;
+  transition: var(--transition);
+  box-sizing: border-box;
+}
+
+.cats-kingdom-form-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+.cats-kingdom-select-arrow {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.cats-kingdom-select-wrapper:hover .cats-kingdom-select-arrow {
+  color: var(--primary-color);
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Acciones del formulario */
+.cats-kingdom-form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Botones */
+.cats-kingdom-btn {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 160px;
+  box-shadow: var(--shadow-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.cats-kingdom-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cats-kingdom-btn:hover::before {
+  left: 100%;
+}
+
+.cats-kingdom-btn-update {
+  background: var(--primary-gradient);
+  color: white;
+  flex: 1;
+}
+
+.cats-kingdom-btn-update:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.cats-kingdom-btn-cancel {
+  background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+  color: white;
+  flex: 1;
+}
+
+.cats-kingdom-btn-cancel:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  background: linear-gradient(135deg, #7f8c8d 0%, #95a5a6 100%);
+}
+
+/* Efectos de hover y focus */
+.cats-kingdom-form-input:hover,
+.cats-kingdom-form-select:hover {
+  border-color: var(--accent-color);
+}
+
+/* Animaciones de entrada */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cats-kingdom-edit-card {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.cats-kingdom-form-group {
+  animation: slideInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.cats-kingdom-form-group:nth-child(1) { animation-delay: 0.1s; }
+.cats-kingdom-form-group:nth-child(2) { animation-delay: 0.2s; }
+.cats-kingdom-form-group:nth-child(3) { animation-delay: 0.3s; }
+.cats-kingdom-form-actions { animation-delay: 0.4s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cats-kingdom-edit-container {
+    padding: 1rem;
+  }
+  
+  .cats-kingdom-edit-card {
+    max-width: 100%;
+  }
+  
+  .cats-kingdom-edit-header {
+    padding: 2rem 1.5rem 1rem;
+  }
+  
+  .cats-kingdom-edit-title {
+    font-size: 1.5rem;
+  }
+  
+  .cats-kingdom-edit-form {
+    padding: 1.5rem;
+  }
+  
+  .cats-kingdom-form-actions {
+    flex-direction: column;
+  }
+  
+  .cats-kingdom-btn {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cats-kingdom-edit-title {
+    font-size: 1.25rem;
+  }
+  
+  .cats-kingdom-edit-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .cats-kingdom-form-input,
+  .cats-kingdom-form-select {
+    padding: 0.875rem 0.875rem 0.875rem 2.5rem;
+  }
+  
+  .cats-kingdom-form-icon {
+    left: 0.875rem;
+    font-size: 1rem;
+  }
+}

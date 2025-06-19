@@ -1,0 +1,394 @@
+/* Variables CSS para consistencia */
+:root {
+  --parchment-primary: #2c1810;
+  --parchment-secondary: #8b4513;
+  --parchment-accent: #d4af37;
+  --parchment-bg: #f8f6f0;
+  --parchment-surface: #ffffff;
+  --parchment-text: #2c1810;
+  --parchment-text-muted: #6b5b73;
+  --parchment-border: rgba(139, 69, 19, 0.15);
+  --parchment-shadow: rgba(44, 24, 16, 0.08);
+  --parchment-shadow-hover: rgba(44, 24, 16, 0.15);
+  --parchment-error: #dc3545;
+  --parchment-success: #28a745;
+  --parchment-gradient: linear-gradient(135deg, #f8f6f0 0%, #ede7d3 100%);
+  --parchment-accent-gradient: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+}
+
+/* Contenedor principal */
+.parchment-edit-container {
+  min-height: 100vh;
+  background: var(--parchment-gradient);
+  padding: 2rem 1rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Tarjeta principal del formulario */
+.parchment-edit-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--parchment-surface);
+  border-radius: 24px;
+  box-shadow: 
+    0 4px 24px var(--parchment-shadow),
+    0 0 0 1px var(--parchment-border);
+  overflow: hidden;
+  position: relative;
+}
+
+.parchment-edit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--parchment-accent-gradient);
+}
+
+/* Header del formulario */
+.parchment-edit-header {
+  padding: 3rem 3rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.03) 0%, rgba(139, 69, 19, 0.02) 100%);
+  border-bottom: 1px solid var(--parchment-border);
+}
+
+.parchment-edit-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--parchment-primary);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.parchment-edit-icon {
+  font-size: 2rem;
+  color: var(--parchment-accent);
+  filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3));
+}
+
+.parchment-edit-subtitle {
+  font-size: 1.125rem;
+  color: var(--parchment-text-muted);
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Formulario */
+.parchment-edit-form {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Grupos de campos */
+.parchment-edit-field-group {
+  position: relative;
+}
+
+/* Labels */
+.parchment-edit-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--parchment-primary);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.parchment-field-icon {
+  color: var(--parchment-accent);
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* Input base styles */
+.parchment-edit-input,
+.parchment-edit-textarea,
+.parchment-edit-select {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--parchment-border);
+  border-radius: 16px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--parchment-text);
+  background: var(--parchment-surface);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.parchment-edit-input::placeholder,
+.parchment-edit-textarea::placeholder {
+  color: var(--parchment-text-muted);
+  opacity: 0.7;
+}
+
+/* Estados de focus */
+.parchment-edit-input:focus,
+.parchment-edit-textarea:focus,
+.parchment-edit-select:focus {
+  outline: none;
+  border-color: var(--parchment-accent);
+  box-shadow: 
+    0 0 0 4px rgba(212, 175, 55, 0.1),
+    0 4px 12px rgba(212, 175, 55, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Textarea específico */
+.parchment-edit-textarea {
+  resize: vertical;
+  min-height: 180px;
+  line-height: 1.6;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+}
+
+/* Select wrapper */
+.parchment-edit-select-wrapper {
+  position: relative;
+}
+
+.parchment-edit-select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 3rem;
+}
+
+.parchment-select-arrow {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--parchment-accent);
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.parchment-edit-select:focus + .parchment-select-arrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Acciones del formulario */
+.parchment-edit-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid var(--parchment-border);
+  margin-top: 1rem;
+}
+
+/* Botones base */
+.parchment-edit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: -0.01em;
+  position: relative;
+  overflow: hidden;
+  min-width: 160px;
+  justify-content: center;
+}
+
+.parchment-edit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.parchment-edit-btn:hover::before {
+  left: 100%;
+}
+
+/* Botón de actualizar */
+.parchment-update-btn {
+  background: var(--parchment-accent-gradient);
+  color: white;
+  box-shadow: 
+    0 4px 14px rgba(212, 175, 55, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.parchment-update-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 24px rgba(212, 175, 55, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.parchment-update-btn:active {
+  transform: translateY(0);
+}
+
+/* Botón de cancelar */
+.parchment-cancel-btn {
+  background: var(--parchment-surface);
+  color: var(--parchment-text);
+  border: 2px solid var(--parchment-border);
+  box-shadow: 0 2px 8px var(--parchment-shadow);
+}
+
+.parchment-cancel-btn:hover {
+  background: var(--parchment-bg);
+  border-color: var(--parchment-secondary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px var(--parchment-shadow-hover);
+}
+
+/* Iconos de botones */
+.parchment-btn-icon {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.parchment-edit-btn:hover .parchment-btn-icon {
+  transform: scale(1.1);
+}
+
+/* Estados de validación */
+.parchment-edit-input:invalid,
+.parchment-edit-textarea:invalid,
+.parchment-edit-select:invalid {
+  border-color: var(--parchment-error);
+}
+
+.parchment-edit-input:valid,
+.parchment-edit-textarea:valid,
+.parchment-edit-select:valid {
+  border-color: var(--parchment-success);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .parchment-edit-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .parchment-edit-header {
+    padding: 2rem 1.5rem 1.5rem;
+  }
+  
+  .parchment-edit-title {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .parchment-edit-form {
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+  
+  .parchment-edit-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .parchment-edit-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .parchment-edit-container {
+    padding: 0.5rem;
+  }
+  
+  .parchment-edit-card {
+    border-radius: 16px;
+  }
+  
+  .parchment-edit-header {
+    padding: 1.5rem 1rem;
+  }
+  
+  .parchment-edit-title {
+    font-size: 1.75rem;
+  }
+  
+  .parchment-edit-form {
+    padding: 1.5rem 1rem;
+  }
+  
+  .parchment-edit-input,
+  .parchment-edit-textarea,
+  .parchment-edit-select {
+    padding: 0.875rem 1rem;
+    border-radius: 12px;
+  }
+  
+  .parchment-edit-btn {
+    padding: 0.875rem 1.5rem;
+    border-radius: 12px;
+  }
+}
+
+/* Animaciones sutiles de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.parchment-edit-card {
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.parchment-edit-field-group {
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+.parchment-edit-field-group:nth-child(1) { animation-delay: 0.1s; }
+.parchment-edit-field-group:nth-child(2) { animation-delay: 0.2s; }
+.parchment-edit-field-group:nth-child(3) { animation-delay: 0.3s; }
+.parchment-edit-actions { animation-delay: 0.4s; }
+
+/* Micro-interacciones */
+.parchment-edit-input:focus,
+.parchment-edit-textarea:focus {
+  animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% {
+    box-shadow: 
+      0 0 0 4px rgba(212, 175, 55, 0.1),
+      0 4px 12px rgba(212, 175, 55, 0.15);
+  }
+  50% {
+    box-shadow: 
+      0 0 0 4px rgba(212, 175, 55, 0.15),
+      0 4px 16px rgba(212, 175, 55, 0.2);
+  }
+}
