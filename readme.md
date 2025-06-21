@@ -102,7 +102,7 @@ Accede a: [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 🎯 Estructura MVC
+## 🎯 Estructura
 
 - `/models` → Lógica de base de datos
 - `/controllers` → Lógica del sistema y renderizado
