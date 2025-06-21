@@ -84,21 +84,21 @@ Accede a: [http://localhost:3000](http://localhost:3000)
 
 ### 🛡️ Gestión de Clanes
 - Crear clanes con relación a territorios
-- Formulario embebido en la vista principal
+- Formulario de crear clanes
 
 ### 📜 Gestión de Pergaminos
 - Cada pergamino pertenece a un gato
 - CRUD completo con validaciones
 
 ### 🌍 Territorios
-- Los clanes pertenecen a territorios (pre-cargados con seed)
+- Los clanes pertenecen a territorios
 
 ### ✨ Extras
-- Layout y navbar reutilizable
+- Partials reutilizable
 - Vistas organizadas por módulo (cats, clans, scrolls, territorios)
 - Middleware global de errores
 - Validaciones con express-validator
-- Mensajes flash de éxito y error
+- Mensajes flash de error
 
 ---
 
