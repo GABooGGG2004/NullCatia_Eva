@@ -40,6 +40,16 @@ NULLCATIA/
 
 ---
 
+## 🧠 Modelo de Base de Datos
+La base de datos de NULLCATIA está diseñada con enfoque relacional y normalizado, permitiendo mantener la integridad referencial y facilitar la gestión de entidades clave del sistema: gatos, clanes, territorios y pergaminos.
+
+### Diagrama ER
+
+
+![Diagrama](https://github.com/user-attachments/assets/89cb2d87-fe70-48d1-abc3-d2cc59761ea1)
+
+---
+
 ## ⚙️ Instalación y configuración
 
 ### 1. Clonar el repositorio
